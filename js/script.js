@@ -1,5 +1,33 @@
 'use strict'
 
+let start_btn = document.getElementById('start');
+
+let budget_value = document.getElementsByClassName('budget-value');
+let daybudget_value = document.getElementsByClassName('daybudget-value');
+let level_value = document.getElementsByClassName('level-value');
+let expenses_value = document.getElementsByClassName('expenses-value');
+let optionalexpenses_value = document.getElementsByClassName('optionalexpenses-value');
+let income_value = document.getElementsByClassName('income-value');
+let monthsavings_value = document.getElementsByClassName('monthsavings-value');
+let yearsavings_value = document.getElementsByClassName('yearsavings-value');
+
+let expenses_item = document.getElementsByClassName('expenses-item');
+
+let btn1 = document.getElementsByTagName('button')[0];
+let btn2 = document.getElementsByTagName('button')[1];
+let btn3 = document.getElementsByTagName('button')[2];
+ 
+let optionalexpenses_item = document.querySelectorAll('.optionalexpenses-item');
+
+let choose_income = document.querySelector('.choose-income');
+let checksavings = document.querySelector("#savings");
+let sumValue = document.querySelector("#sum");
+let percent = document.querySelector("#percent");
+let year_value = document.querySelector('.year-value');
+let month_value = document.querySelector('.month-value');
+let day_value = document.querySelector('.day-value');
+
+
 let money, time
 
 function start() {
