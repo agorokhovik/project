@@ -14,8 +14,11 @@ let yearsavings_value = document.getElementsByClassName('yearsavings-value')[0];
 let expenses_item = document.getElementsByClassName('expenses-item');
 
 let btn1 = document.getElementsByTagName('button')[0];
+btn1.disabled = true;
 let btn2 = document.getElementsByTagName('button')[1];
+btn2.disabled = true;
 let btn3 = document.getElementsByTagName('button')[2];
+btn3.disabled = true;
  
 let optionalexpenses_item = document.querySelectorAll('.optionalexpenses-item');
 
@@ -26,6 +29,13 @@ let percentValue = document.querySelector("#percent");
 let year_value = document.querySelector('.year-value');
 let month_value = document.querySelector('.month-value');
 let day_value = document.querySelector('.day-value');
+
+
+start_btn.addEventListener('click', function() {
+	btn1.disabled = false;
+	btn2.disabled = false;
+	btn3.disabled = false;
+});
 
 
 let money, time;
@@ -74,11 +84,16 @@ btn2.addEventListener('click', function() {
 
 btn3.addEventListener('click', function() {
 
+	let sumDay = 0;
+	for (let key in appData.expenses) {
+		sumDay += Number(appData.expenses[key]);
+	}
+	
 	if (appData.budget != undefined) {
-		appData.moneyPerDay = (appData.budget / 30).toFixed();
+		appData.moneyPerDay = ((appData.budget - sumDay) / 30).toFixed();
 		daybudget_value.textContent = appData.moneyPerDay;
 	
-		if (appData.moneyPerDay < 100) {
+		if (appData.moneyPerDay < 100) {	
 			level_value.textContent = 'Минимальный уровень достатка';
 		} else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000){
 			level_value.textContent = 'Средний уровень достатка';
@@ -141,3 +156,4 @@ let appData = {
 	income: [],
 	savings: false,
 };		
+
